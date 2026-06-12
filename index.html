@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayla Cosmetics — Кәсіби косметикалық бренд</title>
+    <meta name="description" content="Ayla Cosmetics — тері және шаш күтіміне арналған заманауи, сапалы косметикалық бренд. Табиғи сұлулығыңыз бен сенімділігіңізді арттырыңыз.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ДИЗАЙН ЖҮЙЕСІ ЖӘНЕ НЕМІЗГІ СТИЛЬДЕР --- */
+        :root {
+            --bg-primary: #FAF6F0;      /* Нәзік крем түстес фон */
+            --bg-secondary: #F4EAE1;    /* Қанық крем түстес фон */
+            --bg-card: #FFFFFF;         /* Ақ түсті карталар */
+            --text-primary: #2C2623;    /* Күңгірт жылы қоңыр мәтін */
+            --text-secondary: #6B5E59;  /* Көмескі қоңыр-сұр мәтін */
+            --accent-gold: #C5A059;     /* Алтын түстес екпін */
+            --accent-rose: #E8B4A6;     /* Раушан алтын түсі */
+            --accent-rose-dark: #D49282;/* Қанық раушан түсі */
+            --accent-rose-light: #FBF3F0;/* Ақшыл раушан */
+            --kaspi-red: #E11C1C;       /* Kaspi брендтік қызыл түсі */
+            --border-color: #EFE6DC;    /* Жұмсақ жиек сызығы */
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            --shadow-subtle: 0 10px 30px rgba(107, 94, 89, 0.05);
+            --shadow-medium: 0 15px 40px rgba(107, 94, 89, 0.08);
+            --shadow-hover: 0 20px 50px rgba(197, 160, 89, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .brand-logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- БАТЫРМАЛАР СТИЛІ --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background-color: var(--text-primary);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(44, 38, 35, 0.15);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text-primary);
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        /* --- ШЫНЫ ЭФФЕКТІСІ БАР ШАПКА (HEADER) --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(250, 246, 240, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(239, 230, 220, 0.6);
+            transition: var(--transition-smooth);
+        }
+
+        .header.scrolled {
+            padding: 12px 0;
+            background-color: rgba(250, 246, 240, 0.95);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            transition: var(--transition-smooth);
+        }
+
+        .header.scrolled .container {
+            height: 65px;
+        }
+
+        .brand-logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-logo span {
+            color: var(--accent-rose);
+            -webkit-text-fill-color: var(--accent-rose);
+            font-size: 32px;
+            margin-left: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 8px 0;
+            color: var(--text-secondary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background-color: var(--text-primary);
+            transition: var(--transition-smooth);
+        }
+
+        /* --- БЕТТЕРДІ АУЫСТЫРУ КҮЙІ (SPA) --- */
+        .page-section {
+            display: none;
+            padding-top: 120px;
+            padding-bottom: 80px;
+            animation: fadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .page-section.active-page {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= 1. БАСТЫ БЕТ (HOME) ================= */
+        /* --- HERO SECTION --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: flex-start;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .hero-title {
+            font-size: 44px;
+            line-height: 1.25;
+            color: var(--text-primary);
+        }
+
+        .hero-title span {
+            color: var(--accent-gold);
+            display: block;
+            margin-top: 10px;
+            font-size: 36px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 540px;
+            line-height: 1.8;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            aspect-ratio: 4/5;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .hero-image-wrapper:hover .hero-img {
+            transform: scale(1.05);
+        }
+
+        .hero-image-decor {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            pointer-events: none;
+        }
+
+        /* --- АКЦИЯ БЛОГЫ --- */
+        .promo-banner {
+            background: linear-gradient(135deg, #FAF0EB 0%, #F5DED4 100%);
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 80px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid rgba(227, 163, 147, 0.2);
+        }
+
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .promo-badge {
+            background-color: var(--kaspi-red);
+            color: white;
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(225, 28, 28, 0.2);
+        }
+
+        .promo-content {
+            z-index: 2;
+        }
+
+        .promo-title {
+            font-size: 32px;
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .promo-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .promo-btn {
+            z-index: 2;
+            background-color: var(--kaspi-red);
+            color: white;
+        }
+
+        .promo-btn:hover {
+            background-color: #be1313;
+            box-shadow: 0 6px 20px rgba(225, 28, 28, 0.3);
+        }
+
+        /* --- АРТЫҚШЫЛЫҚТАР (BENEFITS) --- */
+        .benefits-section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background-color: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-rose);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 24px;
+            background-color: var(--accent-rose-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            transition: var(--transition-smooth);
+        }
+
+        .benefit-card:hover .benefit-icon {
+            background-color: var(--accent-gold);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .benefit-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+
+        .benefit-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .benefit-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ================= 2. ӨНІМДЕР БЕТІ (PRODUCTS) ================= */
+        /* --- САНАТТАР ФИЛЬТРІ --- */
+        .products-intro-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .products-intro-img-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            aspect-ratio: 16/9;
+        }
+
+        .products-intro-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 10px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--transition-smooth);
+            color: var(--text-secondary);
+        }
+
+        .filter-btn:hover, .filter-btn.active-filter {
+            background-color: var(--text-primary);
+            color: #ffffff;
+            border-color: var(--text-primary);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        /* --- ӨНІМ КАРТАЛАРЫ --- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--accent-rose);
+        }
+
+        .product-img-box {
+            position: relative;
+            background-color: var(--accent-rose-light);
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-placeholder-svg {
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            opacity: 0.15;
+            transition: var(--transition-smooth);
+            z-index: 1;
+        }
+
+        .product-card:hover .product-placeholder-svg {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 0.25;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+            z-index: 2;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.06);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent-gold);
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 3;
+        }
+
+        .product-info {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-cat {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+            padding-top: 18px;
+        }
+
+        .product-price {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-primary);
+        }
+
+        .product-action {
+            background-color: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .product-action:hover {
+            background-color: var(--accent-gold);
+            color: white;
+        }
+
+        /* --- ТӨЛЕМ БӨЛІМІ (KASPI) --- */
+        .payment-section {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            padding: 50px 40px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-subtle);
+            text-align: center;
+        }
+
+        .payment-header {
+            margin-bottom: 35px;
+        }
+
+        .payment-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .payment-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .payment-badge {
+            background-color: #FAF4F4;
+            border: 2px solid rgba(225, 28, 28, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .payment-badge:hover {
+            transform: translateY(-5px);
+            border-color: var(--kaspi-red);
+            background-color: #FFF9F9;
+            box-shadow: 0 10px 25px rgba(225, 28, 28, 0.08);
+        }
+
+        .kaspi-logo-badge {
+            background-color: var(--kaspi-red);
+            color: white;
+            font-weight: 800;
+            font-size: 16px;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-style: italic;
+            letter-spacing: -0.5px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(225, 28, 28, 0.15);
+        }
+
+        .payment-term {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .payment-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* ================= 3. БАЙЛАНЫС БЕТІ (CONTACT) ================= */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-info-block {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .contact-card:hover {
+            transform: translateX(8px);
+            border-color: var(--accent-rose);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-icon {
+            width: 55px;
+            height: 55px;
+            background-color: var(--accent-rose-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-rose-dark);
+            flex-shrink: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-card:hover .contact-icon {
+            background-color: var(--accent-rose-dark);
+            color: white;
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+            margin-bottom: 4px;
+        }
+
+        .contact-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .contact-card a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* --- КЕРІ БАЙЛАНЫС ФОРМАСЫ --- */
+        .contact-form-block {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .form-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 14px 16px;
+            font-family: inherit;
+            font-size: 14px;
+            color: var(--text-primary);
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-rose-dark);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(232, 180, 166, 0.25);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--text-primary);
+            color: #ffffff;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-gold);
+        }
+
+        /* ================= ТӨМЕНГІ БӨЛІМ (FOOTER) ================= */
+        .footer {
+            background-color: var(--text-primary);
+            color: #ffffff;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-brand .brand-logo {
+            margin-bottom: 15px;
+        }
+
+        .footer-brand .brand-logo span {
+            color: var(--accent-rose);
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            color: #A39690;
+            max-width: 320px;
+            line-height: 1.7;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: var(--accent-rose);
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: #A39690;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #8C7F79;
+        }
+
+        /* ================= БЕЙНЕ КӨРІНІС СӘЙКЕСТІГІ (RESPONSIVE) ================= */
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .hero-content {
+                align-items: center;
+            }
+            .hero-desc {
+                margin: 0 auto;
+            }
+            .hero-image-wrapper {
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .products-intro-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .payment-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                height: 70px;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--bg-primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: var(--transition-smooth);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
+            .nav-menu.open {
+                left: 0;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .menu-toggle.open span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+            .menu-toggle.open span:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-toggle.open span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -7px);
+            }
+            .promo-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 24px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            .hero-title span {
+                font-size: 26px;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
+            .benefit-card, .contact-card, .contact-form-block, .payment-section {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- ШАПКА (HEADER) --- -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="brand-logo" onclick="switchPage('home')">Ayla Cosmetics<span>.</span></a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active" onclick="switchPage('home')">Басты бет</a>
+                <a href="#products" class="nav-link" onclick="switchPage('products')">Өнімдер</a>
+                <a href="#contact" class="nav-link" onclick="switchPage('contact')">Байланыс</a>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Мәзірді ашу">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= 1. БАСТЫ БЕТ БӨЛІМІ ================= -->
+    <main class="page-section active-page" id="home">
+        <div class="container">
+            <!-- Hero секциясы -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Ayla_Cosmetics сұлулық пен сенімділікті арттыруға арналған кәсіби косметикалық бренд.
+                    </h1>
+                    <p class="hero-desc">
+                        Ayla Cosmetics — тері күтімі мен сұлулыққа арналған заманауи, сапалы косметикалық бренд. Біздің өнімдер табиғи сұлулықты айқындауға және өзіңізге деген сенімділікті арттыруға көмектеседі.
+                    </p>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <button class="btn btn-primary" onclick="switchPage('products')">Каталогты көру</button>
+                        <button class="btn btn-secondary" onclick="switchPage('contact')">Хабарласу</button>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <!-- Басты сурет: Біз жасаған немесе резервтік дизайн суреті -->
+                    <img src="images/hero.png" alt="Ayla Cosmetics өнімдері" class="hero-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\' viewBox=\'0 0 400 500\'><rect width=\'100%\' height=\'100%\' fill=\'%23F5ECE4\'/><text x=\'50%\' y=\'50%\' font-family=\'Playfair Display, serif\' font-size=\'24\' fill=\'%238C7A70\' text-anchor=\'middle\'>Ayla Cosmetics</text></svg>'">
+                    <div class="hero-image-decor"></div>
+                </div>
+            </section>
+
+            <!-- Акция баннері -->
+            <section class="promo-banner">
+                <div class="promo-content">
+                    <span class="promo-badge">АКЦИЯ</span>
+                    <h2 class="promo-title">0-0-12 акциясы жалғасуда!</h2>
+                    <p class="promo-desc">Барлық өнімдерді Kaspi-ден пайызсыз 12 айға бөліп төлеу арқылы тиімді сатып алыңыз.</p>
+                </div>
+                <button class="btn promo-btn" onclick="switchPage('products')">Сатып алу</button>
+            </section>
+
+            <!-- Артықшылықтар -->
+            <section class="benefits-section">
+                <div class="section-header">
+                    <span class="section-subtitle">Неліктен біз?</span>
+                    <h2 class="section-title">Біздің артықшылықтар</h2>
+                </div>
+                <div class="benefits-grid">
+                    <!-- Артықшылық 1 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Жоғары сапалы өнімдер</h3>
+                        <p class="benefit-desc">Біз әрбір өнімнің дайындалу барысын мұқият қадағалап, ең жоғары сапа стандарттарына кепілдік береміз.</p>
+                    </div>
+                    <!-- Артықшылық 2 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2c-5.33 4.55-8 8.1-8 10.8C4 17.1 7.9 21 12 21s8-3.9 8-8.2c0-2.7-2.67-6.25-8-10.8zm0 16.5c-2.5 0-4.5-2-4.5-4.5 0-1.7 1.9-4.2 4.5-6.8 2.6 2.6 4.5 5.1 4.5 6.8 0 2.5-2 4.5-4.5 4.5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Табиғи құрам</h3>
+                        <p class="benefit-desc">Біздің өнімдер экологиялық таза, теріге зиянсыз табиғи ингредиенттер мен сығындылардан жасалған.</p>
+                    </div>
+                    <!-- Артықшылық 3 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.22 19.58 10.57 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Заманауи сұлулық шешімдері</h3>
+                        <p class="benefit-desc">Біз косметология саласындағы ең соңғы жаңалықтар мен инновациялық формулаларды қолданамыз.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ================= 2. ӨНІМДЕР БӨЛІМІ ================= -->
+    <main class="page-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Біздің каталог</span>
+                <h2 class="section-title">Өнімдер мен категориялар</h2>
+            </div>
+
+            <!-- Санаттармен таныстыру блогы -->
+            <div class="products-intro-grid">
+                <div>
+                    <h3 style="font-size: 24px; margin-bottom: 15px; font-weight:600;">Тері мен шашқа арналған кәсіби күтім</h3>
+                    <p style="color: var(--text-secondary); font-size: 15px; margin-bottom: 20px;">
+                        Ayla Cosmetics сізге өзіңізге күтім жасаудың жаңа деңгейін ұсынады. Категориялар арасында өз теріңіздің түріне қажетті өнімді оңай тауып, кәсіби күтімді үйде сезініңіз.
+                    </p>
+                </div>
+                <div class="products-intro-img-wrapper">
+                    <img src="images/products.png" alt="Ayla Cosmetics өнімдерінің топтамасы" class="products-intro-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\' viewBox=\'0 0 500 300\'><rect width=\'100%\' height=\'100%\' fill=\'%23EADFD2\'/><text x=\'50%\' y=\'50%\' font-family=\'Playfair Display, serif\' font-size=\'20\' fill=\'%237A685D\' text-anchor=\'middle\'>Ayla Collection</text></svg>'">
+                </div>
+            </div>
+
+            <!-- Санаттар сүзгісі (Filter Tabs) -->
+            <div class="filter-container">
+                <button class="filter-btn active-filter" onclick="filterProducts('all')">Барлығы</button>
+                <button class="filter-btn" onclick="filterProducts('face')">Бет күтімі</button>
+                <button class="filter-btn" onclick="filterProducts('hair')">Шаш күтімі</button>
+                <button class="filter-btn" onclick="filterProducts('lip')">Ерін күтімі</button>
+                <button class="filter-btn" onclick="filterProducts('body')">Дене күтімі</button>
+                <button class="filter-btn" onclick="filterProducts('special')">Арнайы күтім</button>
+            </div>
+
+            <!-- Өнімдер торлары (Products Grid) -->
+            <div class="products-grid">
+                
+                <!-- 1. БЕТ КҮТІМІ -->
+                <div class="product-card" data-category="face">
+                    <div class="product-img-box">
+                        <span class="product-badge">Бет күтімі</span>
+                        <img src="images/face.png" alt="Бет күтімі" class="product-img" onerror="this.style.display='none'">
+                        <svg class="product-placeholder-svg" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">Бет күтімі</span>
+                        <h3 class="product-title">Ылғалдандырушы және қоректендіруші бет жиынтығы</h3>
+                        <p class="product-desc">Теріні тазарту, ылғалдандыру және қоректендіруге арналған өнімдер (кремдер, сарысулар, маскалар).</p>
+                        <div class="product-footer">
+                            <span class="product-price">12 900 ₸</span>
+                            <button class="product-action" onclick="switchPage('contact')">Тапсырыс беру</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. ШАШ КҮТІМІ -->
+                <div class="product-card" data-category="hair">
+                    <div class="product-img-box">
+                        <span class="product-badge">Шаш күтімі</span>
+                        <img src="images/hair.png" alt="Шаш күтімі" class="product-img" onerror="this.style.display='none'">
+                        <svg class="product-placeholder-svg" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.5 9-9a9 9 0 0 0-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">Шаш күтімі</span>
+                        <h3 class="product-title">Шашты қалпына келтіруші кәсіби жиынтық</h3>
+                        <p class="product-desc">Шашты күшейту және қалпына келтіруге арналған өнімдер (шампунь, бальзам, маска, майлар).</p>
+                        <div class="product-footer">
+                            <span class="product-price">14 500 ₸</span>
+                            <button class="product-action" onclick="switchPage('contact')">Тапсырыс беру</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. ЕРІН КҮТІМІ -->
+                <div class="product-card" data-category="lip">
+                    <div class="product-img-box">
+                        <span class="product-badge">Ерін күтімі</span>
+                        <img src="images/lip.png" alt="Ерін күтімі" class="product-img" onerror="this.style.display='none'">
+                        <svg class="product-placeholder-svg" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.5 9-9a9 9 0 0 0-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">Ерін күтімі</span>
+                        <h3 class="product-title">Ылғалдандырушы ерін бальзамы мен глосс</h3>
+                        <p class="product-desc">Ерінді жұмсарту және ылғалдандыруға арналған өнімдер (бальзам, глосс, маска).</p>
+                        <div class="product-footer">
+                            <span class="product-price">5 200 ₸</span>
+                            <button class="product-action" onclick="switchPage('contact')">Тапсырыс беру</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. ДЕНЕ КҮТІМІ -->
+                <div class="product-card" data-category="body">
+                    <div class="product-img-box">
+                        <span class="product-badge">Дене күтімі</span>
+                        <img src="images/body.png" alt="Дене күтімі" class="product-img" onerror="this.style.display='none'">
+                        <svg class="product-placeholder-svg" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.5 9-9a9 9 0 0 0-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">Дене күтімі</span>
+                        <h3 class="product-title">Денеге арналған органикалық скраб және лосьон</h3>
+                        <p class="product-desc">Теріні жұмсарту және ылғалдандыруға арналған өнімдер (лосьон, скраб, крем).</p>
+                        <div class="product-footer">
+                            <span class="product-price">9 800 ₸</span>
+                            <button class="product-action" onclick="switchPage('contact')">Тапсырыс беру</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. АРНАЙЫ КҮТІМ -->
+                <div class="product-card" data-category="special">
+                    <div class="product-img-box">
+                        <span class="product-badge">Арнайы күтім</span>
+                        <img src="images/products.png" alt="Арнайы күтім" class="product-img" onerror="this.style.display='none'">
+                        <svg class="product-placeholder-svg" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.5 9-9a9 9 0 0 0-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">Арнайы күтім</span>
+                        <h3 class="product-title">Акнеға қарсы емдік теріні қалпына келтіру сарысуы</h3>
+                        <p class="product-desc">Проблемалы теріге арналған өнімдер (акнеға қарсы, теріні қалпына келтіру).</p>
+                        <div class="product-footer">
+                            <span class="product-price">11 200 ₸</span>
+                            <button class="product-action" onclick="switchPage('contact')">Тапсырыс беру</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Төлем түрлері блогы -->
+            <section class="payment-section">
+                <div class="payment-header">
+                    <span class="section-subtitle">Төлем әдістері</span>
+                    <h2 class="payment-title">Ыңғайлы төлем мен бөліп төлеу</h2>
+                    <p class="payment-subtitle">Kaspi қызметтері арқылы өзіңізге ыңғайлы төлем түрін таңдаңыз</p>
+                </div>
+                <div class="payment-grid">
+                    <!-- Kaspi Red -->
+                    <div class="payment-badge">
+                        <div class="kaspi-logo-badge">Red</div>
+                        <span class="payment-term">Kaspi Red</span>
+                        <span class="payment-desc">3 айға бөліп төлеу</span>
+                    </div>
+                    <!-- Kaspi 0-0-6 -->
+                    <div class="payment-badge">
+                        <div class="kaspi-logo-badge">0-0-6</div>
+                        <span class="payment-term">6 айға бөліп төлеу</span>
+                        <span class="payment-desc">Артық төлемсіз бөліп төлеу</span>
+                    </div>
+                    <!-- Kaspi 0-0-12 -->
+                    <div class="payment-badge" style="border-color: var(--accent-rose);">
+                        <div class="kaspi-logo-badge" style="background-color: var(--accent-gold);">0-0-12</div>
+                        <span class="payment-term" style="color: var(--accent-gold);">0-0-12 акциясы</span>
+                        <span class="payment-desc">Ең танымал таңдау</span>
+                    </div>
+                    <!-- Kaspi 0-0-24 -->
+                    <div class="payment-badge">
+                        <div class="kaspi-logo-badge">0-0-24</div>
+                        <span class="payment-term">24 айға дейін</span>
+                        <span class="payment-desc">Ұзақ мерзімді бөліп төлеу</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ================= 3. БАЙЛАНЫС БӨЛІМІ ================= -->
+    <main class="page-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Бізбен байланыс</span>
+                <h2 class="section-title">Сұрақтарыңыз бар ма?</h2>
+            </div>
+
+            <div class="contact-layout">
+                <!-- Байланыс ақпараты карточкалары -->
+                <div class="contact-info-block">
+                    <!-- Электрондық пошта -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">Email поштамыз</span>
+                            <a href="mailto:aylacosmetics@gmail.com" class="contact-value">aylacosmetics@gmail.com</a>
+                        </div>
+                    </div>
+                    <!-- Телефон -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">Телефон нөміріміз</span>
+                            <a href="tel:+77771234567" class="contact-value">+7 777 123 45 67</a>
+                        </div>
+                    </div>
+                    <!-- Инстаграм -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6zm8.225 1.725a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">Instagram парақшамыз</span>
+                            <a href="https://instagram.com/ayla.cosmeticss" target="_blank" rel="noopener" class="contact-value">@ayla.cosmeticss</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кері байланыс формасы -->
+                <div class="contact-form-block">
+                    <h3 class="form-title">Бізге жазыңыз</h3>
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="userName" class="form-label">Атыңыз</label>
+                            <input type="text" id="userName" class="form-control" placeholder="Атыңызды енгізіңіз" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail" class="form-label">Электронды поштаңыз</label>
+                            <input type="email" id="userEmail" class="form-control" placeholder="email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userMessage" class="form-label">Хабарламаңыз</label>
+                            <textarea id="userMessage" class="form-control" placeholder="Бізге қандай сұрағыңыз бар?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn submit-btn">Жіберу</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ================= ТӨМЕНГІ БӨЛІМ (FOOTER) ================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="brand-logo" style="background:none; -webkit-text-fill-color:#ffffff; color:#ffffff;">Ayla Cosmetics<span style="-webkit-text-fill-color:var(--accent-rose); color:var(--accent-rose);">.</span></a>
+                    <p class="footer-desc">Тері мен шаш күтіміне арналған ең озық әрі табиғи өнімдер жиынтығы.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Бөлімдер</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home" onclick="switchPage('home')">Басты бет</a></li>
+                        <li><a href="#products" onclick="switchPage('products')">Өнімдер</a></li>
+                        <li><a href="#contact" onclick="switchPage('contact')">Байланыс</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Байланыс</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:aylacosmetics@gmail.com">aylacosmetics@gmail.com</a></li>
+                        <li><a href="tel:+77771234567">+7 777 123 45 67</a></li>
+                        <li><a href="https://instagram.com/ayla.cosmeticss" target="_blank" rel="noopener">@ayla.cosmeticss</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ayla Cosmetics. Барлық құқықтар қорғалған.</p>
+                <p>Designed with ♥ for Ayla Cosmetics</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= ИНТЕРАКТИВТІ СЕНАРИЙЛЕР (JAVASCRIPT) ================= -->
+    <script>
+        // Беттер арасында ауысу (Single Page Website)
+        function switchPage(pageId) {
+            // Барлық беттерді жасыру
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active-page');
+            });
+
+            // Қажетті бетті көрсету
+            const targetSection = document.getElementById(pageId);
+            if (targetSection) {
+                targetSection.classList.add('active-page');
+            }
+
+            // Мәзірдегі белсенді сілтемені жаңарту
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${pageId}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Мобильді мәзірді жабу
+            const navMenu = document.getElementById('navMenu');
+            const menuToggle = document.getElementById('menuToggle');
+            navMenu.classList.remove('open');
+            menuToggle.classList.remove('open');
+
+            // Экранды жоғарыға апару
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Санаттар бойынша өнімдерді сүзгілеу (Product Filtering)
+        function filterProducts(category) {
+            // Белсенді санат батырмасын өзгерту
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.classList.remove('active-filter');
+            });
+            
+            // Батырманы белсенді ету
+            event.target.classList.add('active-filter');
+
+            // Өнімдерді көрсету/жасыру
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                    card.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Мобильді құрылғыларда навигацияны ашу/жабу
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('open');
+            navMenu.classList.toggle('open');
+        });
+
+        // Форманы өңдеу (Form submit handler)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const message = document.getElementById('userMessage').value;
+
+            // Сәтті жіберілгені туралы хабарлама (Көрнекі модельдеу)
+            alert(`Рахмет, ${name}! Хабарламаңыз сәтті қабылданды. Жақын арада сізбен байланысамыз.`);
+            document.getElementById('contactForm').reset();
+        }
+
+        // Шапка стилін терезе айналдыруына қарай өзгерту (Sticky Header effect)
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
